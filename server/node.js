@@ -1,10 +1,10 @@
 const IORedis = require('ioredis');
 
 const Redis = new IORedis({
-  port: 6379,
-  host: '127.0.0.1',
+  port: GetConvarInt('redis_port', 6379),
+  host: GetConvar('redis_host', '127.0.0.1'),
   family: 4,
-  db: 0,
+  db: GetConvarInt('redis_db', 0),
 });
 
 function Callback(cb, ...args) {
